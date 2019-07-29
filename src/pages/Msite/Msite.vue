@@ -50,6 +50,7 @@ export default {
   },
   mounted () {
     this.$store.dispatch('getCategorys')
+    this.$store.dispatch('getShops')
     /* eslint-disable no-new */
     // new Swiper('.swiper-container', {
     //   pagination: {
