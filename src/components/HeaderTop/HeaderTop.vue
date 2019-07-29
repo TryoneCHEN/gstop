@@ -12,7 +12,7 @@
 export default {
   name: 'HeaderTop',
   props: {
-    title: ''
+    title: String
   }
 }
 </script>
