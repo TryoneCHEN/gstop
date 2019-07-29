@@ -5,8 +5,8 @@
         <i class="iconfont icon-xuanxiang"></i>
         <span class="shop_header_title">附近商家</span>
       </div>
-      <div class="shop_container">
-        <ul class="shop_list">
+      <div class="shop_container" v-if="shops.length">
+        <ul class="shop_list" v-if="shops.length">
           <li class="shop_li border-1px" v-for="(shop, index) in shops"
           :key="index">
             <a>
@@ -49,6 +49,11 @@
             </a>
           </li>
         </ul>
+      <ul v-else>
+         <li v-for="item in 6" :key="item">
+        <img src="./images/shop_back.svg" alt="back">
+      </li>
+    </ul>
       </div>
     </div>
 </template>
