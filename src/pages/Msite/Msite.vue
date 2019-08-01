@@ -16,7 +16,7 @@
           <div class="swiper-slide" v-for="(categorys, index) in categorysArr" :key="index">
             <a href="javascript:" class="link_to_food" v-for="(category, index) in categorys" :key="index">
               <div class="food_container">
-                <img src="baseImageUrl+category.image_url" />
+                <img :src="baseImageUrl+category.image_url" />
               </div>
               <span>{{category.title}}</span>
             </a>
@@ -44,10 +44,6 @@ export default {
     return {
       baseImageUrl: 'https://fuss10.elemecdn.com'
     }
-  },
-  components: {
-    HeaderTop,
-    ShopList
   },
   mounted () {
     this.$store.dispatch('getCategorys')
@@ -112,6 +108,10 @@ export default {
         })
       })
     }
+  },
+  components: {
+    HeaderTop,
+    ShopList
   }
 }
 </script>
