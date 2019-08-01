@@ -35,6 +35,7 @@
                     <div class="switch_circle"></div>
                     <span class="switch_text">...</span>
                   </div>
+                  
                 </section>
                 <section class="login_message">
                   <input type="text" maxlength="11" placeholder="验证码">
