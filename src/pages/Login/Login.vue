@@ -39,7 +39,7 @@
                 </section>
                 <section class="login_message">
                   <input type="text" maxlength="11" placeholder="验证码" v-model="captcha">
-                  <img class="get_verification" src="./images/captcha.svg" alt="captcha">
+                  <img class="get_verification" src="http://localhost:4000/captcha"  alt="captcha" @click="getCaptcha" ref="captcha">
                 </section>
               </section>
             </div>
@@ -101,6 +101,7 @@ export default {
       this.alertShow = true
       this.alertText = alertText
     },
+    // 异步登陆
     login () {
       // 前台表单验证
       if (this.loginWay) { // 短信登陆
@@ -126,9 +127,15 @@ export default {
         }
       }
     },
+    // 关闭警告框
     closeTip () {
       this.alertShow = false
       this.alertText = ''
+    },
+    // 获取一个新的图片验证码
+    getCaptcha () {
+       // 每次指定的src要不一样
+        this.$refs.captcha.src = 'http://localhost:4000/captcha?time='+Date.now()
     }
   },
   components: {
