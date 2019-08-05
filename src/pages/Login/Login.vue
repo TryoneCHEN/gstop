@@ -43,7 +43,7 @@
                 </section>
               </section>
             </div>
-            <button class="login_submit">登录</button>
+            <button class="login_submit" >登录</button>
           </form>
           <a href="javascript:;" class="about_us">关于我们</a>
         </div>

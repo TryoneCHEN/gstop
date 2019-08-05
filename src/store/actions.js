@@ -4,6 +4,7 @@
 import {
   RECEIVE_ADDRESS,
   RECEIVE_CATEGORYS,
+  RECEIVE_USER_INFO,
   RECEIVE_SHOPS
 } from './mutation-types'
 
@@ -47,5 +48,9 @@ export default {
       const shops = result.data
       commit(RECEIVE_SHOPS, {shops})
     }
+  },
+  // 同步记录用户信息
+  recordUser ({commit}, userInfo) {
+    commit(RECEIVE_USER_INFO, {userInfo})
   }
 }

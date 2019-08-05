@@ -7,7 +7,7 @@
               <i class="iconfont icon-person"></i>
             </div>
             <div class="user-info">
-              <p class="user-info-top">登录/注册</p>
+              <p class="user-info-top">{{userInfo._id || "登录/注册"}}</p>
               <p>
                 <span class="user-icon">
                   <i class="iconfont icon-shouji icon-mobile"></i>
@@ -109,9 +109,13 @@
 </template>
 
 <script>
+import {mapState} from 'vuex'
 import HeaderTop from '../../components/HeaderTop/HeaderTop.vue'
 export default {
   name: 'Profile',
+  computed: {
+    ...mapState(['userInfo'])
+  },
   components: {
     HeaderTop
   }
@@ -125,6 +129,7 @@ export default {
           .profile-number
             margin-top 45.5px
             .profile-link
+              overflow hidden
               clearFix()
               position relative
               display block
@@ -141,6 +146,7 @@ export default {
                   background #e4e4e4
                   font-size 62px
               .user-info
+                overflow hidden
                 float left
                 margin-top 8px
                 margin-left 15px
