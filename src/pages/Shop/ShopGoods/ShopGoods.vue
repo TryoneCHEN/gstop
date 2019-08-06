@@ -5,7 +5,7 @@
         <ul>
           <!--current-->
           <li class="menu-item" v-for="(good, index) in goods" :key="index"
-            @click="clickMenuItem(index)">
+           :class="{current: index===currentIndex}" @click="clickMenuItem(index)">
             <span class="text bottom-border-1px">
               <img class="icon" :src="good.icon" v-if="good.icon">
               {{good.name}}
@@ -48,13 +48,39 @@
 </template>
 
 <script>
+import BScroll from 'better-scroll'
 import {mapState} from 'vuex'
+
 export default {
+  data () {
+    return {
+      scrollY: 0, // 右侧滑动的Y轴坐标 (滑动过程时实时变化)
+      tops: [] // 所有右侧分类li的top组成的数组  (列表第一次显示后就不再变化)
+    }
+  },
   mounted () {
-    this.$store.dispatch('getShopGoods')
+    this.$store.dispatch('getShopGoods', () => { // 数据更新后执行
+      this.$nextTick(() => { // 列表数据更新显示后执行
+        // this._initScroll()
+        // this._initTops()
+        new BScroll('.menu-wrapper')
+        new BScroll('.foods-wrapper')
+      })
+    })
   },
   computed: {
-    ...mapState(['goods'])
+    ...mapState(['goods']),
+    currentIndex () {
+    // 得到条件数据
+      const {scrollY, tops} = this
+      // 根据条件计算产生一个结果
+      const index = tops.findIndex((top, index) => {
+      // scrollY>=当前top && scrollY<下一个top
+        return scrollY >= top && scrollY < tops[index + 1]
+      })
+      // 返回结果
+      return index
+    }
   }
 }
 

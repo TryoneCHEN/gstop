@@ -2,7 +2,7 @@
   <section class="msite">
     <!--首页头部-->
     <HeaderTop :title="address.name">
-      <router-link class="header_search" slot="left">
+      <router-link class="header_search" slot="left" to="/search">
         <i class="iconfont icon-sousuo"></i>
       </router-link>
       <router-link class="header_login" slot="right" :to="userInfo._id ? '/userinfo': '/login'">

@@ -328,3 +328,27 @@ main.js![1564988126716](C:\Users\TryoneCHEN\AppData\Roaming\Typora\typora-user-i
 
 ![1565068324439](C:\Users\TryoneCHEN\AppData\Roaming\Typora\typora-user-images\1565068324439.png)
 
+#### 50.shopheader组件
+
+二级表达式可能取到的是undefine然后取三级的时候就会报错
+
+![1565070342046](C:\Users\TryoneCHEN\AppData\Roaming\Typora\typora-user-images\1565070342046.png)
+
+解决方法：写个v-if判断是否有数据过来
+
+![1565070457998](C:\Users\TryoneCHEN\AppData\Roaming\Typora\typora-user-images\1565070457998.png)
+
+#### 52.异步显示goods数据
+
+1.首先写布局
+
+2.调用getShopGoods方法 
+
+![1565081544851](C:\Users\TryoneCHEN\AppData\Roaming\Typora\typora-user-images\1565081544851.png)
+
+3.获取vuex中的数据
+
+![1565081565353](C:\Users\TryoneCHEN\AppData\Roaming\Typora\typora-user-images\1565081565353.png)
+
+4.渲染数据
+
