@@ -64,7 +64,15 @@ export default {
         // this._initScroll()
         // this._initTops()
         new BScroll('.menu-wrapper')
-        new BScroll('.foods-wrapper')
+        this.foodsScroll = new BScroll('.foods-wrapper', {
+          probeType: 2, // 因为惯性滑动不会触发
+          click: true
+        })
+        // 给右侧列表绑定scroll监听
+        this.foodsScroll.on('scroll', ({x, y}) => {
+          console.log(x, y)
+          this.scrollY = Math.abs(y)
+        })
       })
     })
   },

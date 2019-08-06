@@ -352,3 +352,19 @@ main.js![1564988126716](C:\Users\TryoneCHEN\AppData\Roaming\Typora\typora-user-i
 
 4.渲染数据
 
+#### 54.使用better-scroll实现回弹滑动
+
+1.下载better-scroll ：npm install better-scroll -S
+
+2.导入
+
+![1565104367856](C:\Users\TryoneCHEN\AppData\Roaming\Typora\typora-user-images\1565104367856.png)
+
+3.使用
+
+![1565104485361](C:\Users\TryoneCHEN\AppData\Roaming\Typora\typora-user-images\1565104485361.png)
+
+![1565104413216](C:\Users\TryoneCHEN\AppData\Roaming\Typora\typora-user-images\1565104413216.png)
+
+
+
