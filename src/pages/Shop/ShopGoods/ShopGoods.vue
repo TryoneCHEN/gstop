@@ -68,12 +68,13 @@ export default {
   },
   computed: {
     ...mapState(['goods']),
+    // 计算得到当前分类的下标
     currentIndex () {
     // 得到条件数据
       const {scrollY, tops} = this
       // 根据条件计算产生一个结果
       const index = tops.findIndex((top, index) => {
-      // scrollY>=当前top && scrollY<下一个top
+      // scrollY>=当前top && scrollY<下一个top，这里取的是区间值
         return scrollY >= top && scrollY < tops[index + 1]
       })
       // 返回结果
@@ -84,7 +85,7 @@ export default {
     // 初始化滚动
     _initScroll () {
       // 列表显示之后创建
-      new BScroll('.menu-wrapper', {
+      this.foodsScroll = new BScroll('.menu-wrapper', {
         click:true
       })
       this.foodsScroll = new BScroll('.foods-wrapper', {
@@ -97,7 +98,7 @@ export default {
         console.log(x, y)
         this.scrollY = Math.abs(y)
       })
-      // 给右侧列表绑定scroll结束的监听
+      // 给右侧列表绑定scroll结束的监听  解决惯性滑动不跟新当前分类bug
       this.foodsScroll.on('scrollEnd', ({x, y}) => {
         console.log('scrollEnd', x, y)
         this.scrollY = Math.abs(y)
@@ -121,6 +122,17 @@ export default {
       // 3. 更新数据
       this.tops = tops
       console.log(tops)
+    },
+    clickMenuItem (index) {
+      // console.log(index)
+      // 使用右侧列表滑动到对应的位置
+
+      // 得到目标位置的scrollY
+      const scrollY = this.tops[index]
+      // 立即更新scrollY(让点击的分类项成为当前分类)
+      this.scrollY = scrollY
+      // 平滑滑动右侧列表
+      this.foodsScroll.scrollTo(0, -scrollY, 300)
     }
   }
 }

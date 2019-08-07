@@ -366,5 +366,11 @@ main.js![1564988126716](C:\Users\TryoneCHEN\AppData\Roaming\Typora\typora-user-i
 
 ![1565104413216](C:\Users\TryoneCHEN\AppData\Roaming\Typora\typora-user-images\1565104413216.png)
 
+55.滑动右侧列表更新当前分类shopGoods
 
+![1565161262136](C:\Users\TryoneCHEN\AppData\Roaming\Typora\typora-user-images\1565161262136.png)
+
+56.解决惯性滑动不更新当前分类的bug就是给他加一个滑动结束监听
+
+![1565161571445](C:\Users\TryoneCHEN\AppData\Roaming\Typora\typora-user-images\1565161571445.png)
 
