@@ -2,23 +2,24 @@
   <div class="food" v-if="isShow">
     <div class="food-content">
       <div class="image-header">
-        <img srv="http://fuss10.elemecdn.com/8/a6/453f65f16b1391942af11511b7a90jpeg.jpeg?imageVi ew2/1/w/750/h/750">
-        <p class="foodpanel-desc">大米</p>
+        <img :src="food.image">
+        <p class="foodpanel-desc">{{food.info}}</p>
         <div class="back" @click="toggleShow">
           <i class="iconfont icon-arrow_left"></i>
         </div>
       </div>
       <div class="content">
-        <h1 class="title">实物</h1>
+        <h1 class="title">{{food.name}}</h1>
         <div class="detail">
-          <span class="sell-count">月售3份</span>
-          <span class="rating">好评率98%</span>
+          <span class="sell-count">月售{{food.sellCount}}份</span>
+          <span class="rating">好评率{{food.rating}}%</span>
         </div>
         <div class="price">
-          <span class="now">￥45</span>
+          <span class="now">￥{{food.price}}</span>
+          <span class="old" v-show="food.oldPrice">￥{{food.oldPrice}}</span>
         </div>
         <div class="cartcontrol-wrapper">
-          <!-- <CartControl :food="food"/> -->
+          <CartControl :food="food"/>
         </div>
       </div>
     </div>
@@ -27,7 +28,7 @@
 </template>
 
 <script>
-// import CartControl from '../CartControl/CartControl.vue'
+import CartControl from '../CartControl/CartControl.vue'
 
 export default {
   props: {
@@ -44,11 +45,11 @@ export default {
     toggleShow () {
       this.isShow = !this.isShow
     }
-  }
+  },
 
-  // components: {
-  //   CartControl
-  // }
+  components: {
+    CartControl
+  }
 }
 </script>
 
