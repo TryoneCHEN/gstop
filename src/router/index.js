@@ -16,6 +16,7 @@ const Profile = () => import('../pages/Profile/Profile.vue')
 // import ShopGoods from '../pages/Shop/ShopGoods/ShopGoods.vue'
 // import ShopRatings from '../pages/Shop/ShopRatings/ShopRatings.vue'
 // import ShopInfo from '../pages/Shop/ShopInfo/ShopInfo.vue'
+// 路由懒加载实际上用到的就是一个函数import
 const Login = () => import('../pages/Login/Login.vue')
 const Shop = () => import('../pages/Shop/Shop.vue')
 const ShopGoods = () => import('../pages/Shop/ShopGoods/ShopGoods.vue')
