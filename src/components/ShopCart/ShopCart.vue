@@ -19,7 +19,7 @@
         </div>
       </div>
       <transition name="move">
-        <div class="shopcart-list" v-show="isShow" @click="toggleShow">
+        <div class="shopcart-list" v-show="listShow">
           <div class="list-header">
             <h1 class="title">购物车</h1>
             <span class="empty">清空</span>
@@ -39,7 +39,7 @@
       </transition>
 
     </div>
-    <div class="list-mask" style=display:none></div>
+    <div class="list-mask" v-show="listShow" @click="toggleShow"></div>
   </div>
 </template>
 
@@ -79,6 +79,14 @@ export default {
       } else {
         return '结算'
       }
+    },
+    listShow () {
+      // 如果总数量为0, 直接不显示
+      if (this.totalCount === 0) {
+        this.isShow = false
+        return false
+      }
+      return this.isShow
     }
   },
   components: {
@@ -89,7 +97,9 @@ export default {
 
 <style lang="stylus" rel="stylesheet/stylus" scoped>
   @import "../../common/stylus/mixins.styl"
-
+* {
+    touch-action: none;
+  }
   .shopcart
     position fixed
     left 0
